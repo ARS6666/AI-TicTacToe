@@ -43,6 +43,7 @@ function App() {
     function updateCell(cell, index) {
       options[index] = currentPlayer;
       cell.textContent = currentPlayer;
+      cell.className = `cell ${currentPlayer}`
     }
 
     function changePlayer() {
@@ -156,7 +157,8 @@ function App() {
   return (
     <>
       <div id="gameContainer">
-        <h1>Tic Tac Toe</h1>
+        <h1 className='glow'>Tic Tac Toe</h1>
+        <h2 id="statusText" className='glow'></h2>
         <div className="cell-container">
           <div cellindex="0" className="cell"></div>
           <div cellindex="1" className="cell"></div>
@@ -168,7 +170,6 @@ function App() {
           <div cellindex="7" className="cell"></div>
           <div cellindex="8" className="cell"></div>
         </div>
-        <h2 id="statusText"></h2>
         <button id="restartBtn">Restart</button>
       </div>
     </>

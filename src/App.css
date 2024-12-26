@@ -1,27 +1,142 @@
+html body {
+  background-color: black;
+}
+
 .cell {
   width: 100px;
   height: 100px;
-  border: 2px solid;
   line-height: 100px;
   font-size: 50px;
   cursor: pointer;
-  box-shadow: 0 0 0 2px;
+  color: #ffffff;
 }
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-bottom: 3px solid;
+}
+
+.cell:nth-child(4),
+.cell:nth-child(5),
+.cell:nth-child(6) {
+  border-top: 3px solid;
+  border-bottom: 3px solid;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-top: 3px solid;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-right: 3px solid;
+}
+
+.cell:nth-child(2),
+.cell:nth-child(5),
+.cell:nth-child(8) {
+  border-left: 3px solid;
+  border-right: 3px solid;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-left: 3px solid;
+}
+
+
+.X {
+  color: white;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 15px #fff,
+    0 0 20px #1e90ff,
+    0 0 30px #1e90ff,
+    0 0 40px #1e90ff,
+    0 0 55px #1e90ff,
+    0 0 75px #1e90ff;
+}
+
+.O {
+  color: white;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 15px #fff,
+    0 0 20px #ff4500,
+    0 0 30px #ff4500,
+    0 0 40px #ff4500,
+    0 0 55px #ff4500,
+    0 0 75px #ff4500;
+}
+
 
 #gameContainer {
   font-family: 'Permanent Marker', cursive;
   text-align: center;
   justify-content: center;
+
+}
+
+@keyframes whiteTextShadow {
+  0% {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 55px #ffffff, 0 0 75px #ffffff;
+  }
+
+  33% {
+    text-shadow: 0 0 5px #e6e6e6, 0 0 10px #e6e6e6, 0 0 15px #e6e6e6, 0 0 20px #e6e6e6, 0 0 30px #e6e6e6, 0 0 40px #e6e6e6, 0 0 55px #e6e6e6, 0 0 75px #e6e6e6;
+  }
+
+  66% {
+    text-shadow: 0 0 5px #cccccc, 0 0 10px #cccccc, 0 0 15px #cccccc, 0 0 20px #cccccc, 0 0 30px #cccccc, 0 0 40px #cccccc, 0 0 55px #cccccc, 0 0 75px #cccccc;
+  }
+
+  100% {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 55px #ffffff, 0 0 75px #ffffff;
+  }
+}
+
+.glow {
+  animation: whiteTextShadow 3s infinite;
+  color: #ffffff;
+}
+
+@keyframes rgbBorder {
+  0% {
+    border-color: #ff0000;
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 55px #ff0000, 0 0 75px #ff0000;
+  }
+
+  33% {
+    border-color: #00ff00;
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 55px #00ff00, 0 0 75px #00ff00;
+  }
+
+  66% {
+    border-color: #0000ff;
+    box-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 15px #0000ff, 0 0 20px #0000ff, 0 0 30px #0000ff, 0 0 40px #0000ff, 0 0 55px #0000ff, 0 0 75px #0000ff;
+  }
+
+  100% {
+    border-color: #ff0000;
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 55px #ff0000, 0 0 75px #ff0000;
+  }
 }
 
 #restartBtn {
-  background-color: #28a745;
-  color: white;
+  color: black;
   border: 0;
   padding: .375rem .75rem;
   border-radius: .25rem;
   line-height: 1.5;
   font-weight: 400;
+  animation: rgbBorder 3s infinite;
   font-size: 1rem;
   font-family: 'Permanent Marker', cursive;
 }
@@ -29,6 +144,7 @@
 .cell-container {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  width: 300px;
+  width: 312px;
   margin: auto;
+  padding-bottom: 3%;
 }

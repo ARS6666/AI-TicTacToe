@@ -1,11 +1,14 @@
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   useEffect(() => {
     const cells = document.querySelectorAll(".cell");
     const statustext = document.querySelector("#statusText");
     const restartBtn = document.querySelector("#restartBtn");
+    const AInum = document.querySelector("#AInum");
+    const HUnum = document.querySelector("#HUnum");
+    const TIenum = document.querySelector("#TIenum");
     const winConditions = [
       [0, 1, 2],
       [3, 4, 5],
@@ -19,6 +22,9 @@ function App() {
     let options = ["", "", "", "", "", "", "", "", ""];
     let currentPlayer = "X";
     let running = false;
+    let ainum = 0;
+    let hunum = 0;
+    let tienum = 0;
 
     initializeGame();
 
@@ -27,7 +33,6 @@ function App() {
       bestMove();
       cells.forEach(cell => cell.addEventListener("click", cellClicked));
       restartBtn.addEventListener("click", restartGame);
-      statustext.textContent = `${currentPlayer}'s turn`;
     }
 
     function cellClicked() {
@@ -48,7 +53,6 @@ function App() {
 
     function changePlayer() {
       currentPlayer = currentPlayer === "X" ? "O" : "X";
-      statustext.textContent = `${currentPlayer}'s turn`;
     }
 
     function checkWinner() {
@@ -68,9 +72,20 @@ function App() {
       }
       if (roundWon) {
         running = false;
-        statustext.textContent = `${currentPlayer} WON!`;
+        if (currentPlayer === "X") {
+          ainum = ainum + 1
+          AInum.textContent = `AI : ${ainum}`;
+          statustext.textContent = `AI WON!`;
+        } else {
+          statustext.textContent = `YOU WON!`;
+          hunum = hunum + 1
+          HUnum.textContent = `YOU : ${hunum}`;
+          statustext.textContent = `AI WON!`;
+        }
       } else if (!options.includes("")) {
         statustext.textContent = `Draw`;
+        tienum = tienum + 1
+        TIenum.textContent = `DRAWS : ${tienum}`;
         running = false;
       } else {
         changePlayer();
@@ -80,7 +95,7 @@ function App() {
     function restartGame() {
       options = ["", "", "", "", "", "", "", "", ""];
       currentPlayer = "X";
-      statustext.textContent = `${currentPlayer}'s turn`;
+      statustext.textContent = "";
       cells.forEach(cell => cell.textContent = "");
       running = true;
       bestMove();
@@ -155,7 +170,11 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div id="container">
+      <div id="statContainer">
+        <h1 className='glow'>AI  <span class="X">X</span></h1>
+        <h1 className='glow'>YOU  <span class="O">O</span></h1>
+      </div>
       <div id="gameContainer">
         <h1 className='glow'>Tic Tac Toe</h1>
         <h2 id="statusText" className='glow'></h2>
@@ -172,7 +191,12 @@ function App() {
         </div>
         <button id="restartBtn">Restart</button>
       </div>
-    </>
+      <div id="display">
+        <h1 id="AInum" className='glow'>AI : 0</h1>
+        <h1 id="HUnum" className='glow'>YOU : 0</h1>
+        <h1 id="TIenum" className='glow'>DRAWS : 0</h1>
+      </div>
+    </div>
   );
 }
 

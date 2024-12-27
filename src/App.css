@@ -76,12 +76,44 @@ html body {
     0 0 75px #ff4500;
 }
 
+#container {
+  max-width: 100%;
+  margin: 0;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+}
+
+#statContainer {
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
+  max-width: 30%;
+  justify-content: center;
+  padding-top: 10%;
+}
+
+#display {
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
+  max-width: 30%;
+  justify-content: center;
+  padding-top: 10%;
+}
 
 #gameContainer {
   font-family: 'Permanent Marker', cursive;
   text-align: center;
   justify-content: center;
-
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 20%;
+  flex: 0 0 20%;
+  max-width: 20%;
 }
 
 @keyframes whiteTextShadow {

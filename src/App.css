@@ -92,7 +92,7 @@ html body {
   flex: 0 0 30%;
   max-width: 30%;
   justify-content: center;
-  padding-top: 10%;
+  padding-top: 15%;
 }
 
 #display {
@@ -103,7 +103,7 @@ html body {
   flex: 0 0 30%;
   max-width: 30%;
   justify-content: center;
-  padding-top: 10%;
+  padding-top: 15%;
 }
 
 #gameContainer {
@@ -114,6 +114,7 @@ html body {
   -ms-flex: 0 0 20%;
   flex: 0 0 20%;
   max-width: 20%;
+  padding-top: 5%;
 }
 
 @keyframes whiteTextShadow {
